@@ -25,7 +25,7 @@ func New(f userFunc) *Memo {
 }
 
 // 返回常见的 einter,error
-// 非并发安全
+// 并发安全
 func (m *Memo) Get(key string) (interface{}, error) {
 	m.mu.Lock()
 	defer m.mu.Unlock()
